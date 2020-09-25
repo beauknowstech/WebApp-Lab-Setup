@@ -26,6 +26,7 @@ fi
 echo -e "\nChecking to see if running on WSL \n"
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     echo -e "Running on WSL Windows 10 \n"
+    echo -e "Sidenote, you will have to install burp suite manually if running on WSL. Alternatively, you could install it on windows instead of in kali\n"
     if docker > /dev/null 2>&1 ; then
         echo -e "Docker is running \n"
     else
@@ -70,7 +71,7 @@ docker run --name juice-shop --restart unless-stopped -d -p 3000:3000 bkimminich
 docker run --name goatandwolf --restart unless-stopped -d -p 8080:8080 -p 9090:9090 -e TZ=$tz webgoat/goatandwolf
 docker run --name web-dvwa --restart unless-stopped -d -p 80:80 vulnerables/web-dvwa
 
-
+docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"
 
 #todo
 # install any tools we still need
