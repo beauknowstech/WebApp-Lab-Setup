@@ -65,13 +65,14 @@ fi
 
 
 # Install vulnerable docker containers
-echo -e "\nInstalling vulnerable docker containers Juice Shop, Webgoat, DVWA"
+echo -e "\nInstalling vulnerable docker containers Juice Shop, Webgoat/WebWolf, DVWA"
 tz=$(cat /etc/timezone)
 docker run --name juice-shop --restart unless-stopped -d -p 3000:3000 bkimminich/juice-shop
 docker run --name goatandwolf --restart unless-stopped -d -p 8080:8080 -p 9090:9090 -e TZ=$tz webgoat/goatandwolf
 docker run --name web-dvwa --restart unless-stopped -d -p 80:80 vulnerables/web-dvwa
 
-docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"
+echo -e "\nHere are the running docker containers\n"
+docker ps
 
 #todo
 # install any tools we still need
