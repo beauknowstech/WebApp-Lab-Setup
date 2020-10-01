@@ -43,11 +43,12 @@ else
     else
     echo -e "\e[31mDocker is not installed, after it installs you will need to restart the script\e[0m"
     echo -e "\e[31mby running ./WebApp-Lab-Setup.sh again\e[0m"
-    echo "\nInstalling docker"
+    echo -e "\nInstalling docker"
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     echo 'deb [arch=amd64] https://download.docker.com/linux/debian buster stable' | sudo tee /etc/apt/sources.list.d/docker.list
     sudo apt remove docker docker-engine docker.io
     sudo apt install -y docker-ce
+    sudo groupadd docker
     sudo usermod -aG docker $USER
     newgrp docker
     fi
