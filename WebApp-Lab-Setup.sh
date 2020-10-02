@@ -48,7 +48,7 @@ else
     sudo apt install -y docker-ce
     sudo groupadd docker
     sudo usermod -aG docker $USER
-    echo -e "\e[31mDocker is not installed, after it installs you will need to restart the script\e[0m"
+    echo -e "\e[31mDocker was not installed, after it installs you will need to restart the script\e[0m"
     echo -e "\e[31mby running ./WebApp-Lab-Setup.sh again\e[0m"
     newgrp docker
     fi
