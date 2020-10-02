@@ -79,6 +79,3 @@ docker run --name web-dvwa --restart unless-stopped -d -p 80:80 vulnerables/web-
 echo -e "\nHere are the running docker containers\n"
 docker ps
 
-#todo
-# install any tools we still need
-
